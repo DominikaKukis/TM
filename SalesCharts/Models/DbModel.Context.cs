@@ -25,6 +25,8 @@ namespace SalesCharts.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<ProductA> ProductASet { get; set; }
+        public virtual DbSet<ProductB> ProductB { get; set; }
+        public virtual DbSet<ProductC> ProductC { get; set; }
     }
 }
