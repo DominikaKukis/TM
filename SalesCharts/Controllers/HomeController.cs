@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SalesCharts.Models;
 
 namespace SalesCharts.Controllers
 {
@@ -13,18 +14,20 @@ namespace SalesCharts.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult ProductA()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            using (DBModel dBModel = new DBModel())
+            {
+                return View(dBModel.Product.Where(x=>x.Name=="ProductA").ToList());
+            }
         }
 
-        public ActionResult Contact()
+        public ActionResult ProductB()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            using (DBModel dBModel = new DBModel())
+            {
+                return View(dBModel.Product.Where(x => x.Name == "ProductB").ToList());
+            }
         }
 
         public ActionResult Product()

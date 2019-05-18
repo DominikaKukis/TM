@@ -13,10 +13,10 @@ namespace SalesCharts.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DbModel : DbContext
+    public partial class DBModel : DbContext
     {
-        public DbModel()
-            : base("name=DbModel")
+        public DBModel()
+            : base("name=DBModel")
         {
         }
     
@@ -25,8 +25,6 @@ namespace SalesCharts.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ProductA> ProductASet { get; set; }
-        public virtual DbSet<ProductB> ProductB { get; set; }
-        public virtual DbSet<ProductC> ProductC { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
     }
 }

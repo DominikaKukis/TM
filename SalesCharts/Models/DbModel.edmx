@@ -5,148 +5,62 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SalesDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="ProductA">
+        <EntityType Name="Product">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
-          <Property Name="Demand" Type="int" Nullable="false" />
-          <Property Name="Supply" Type="int" Nullable="false" />
-          <Property Name="Income" Type="float" Nullable="false" />
-          <Property Name="Profit" Type="float" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
           <Property Name="Provision" Type="float" Nullable="false" />
           <Property Name="DeliveryPayment" Type="float" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ProductB">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Date" Type="datetime" Nullable="false" />
-          <Property Name="Demand" Type="int" Nullable="false" />
-          <Property Name="Supply" Type="int" Nullable="false" />
-          <Property Name="Income" Type="float" Nullable="false" />
-          <Property Name="Profit" Type="float" Nullable="false" />
-          <Property Name="Provision" Type="float" Nullable="false" />
-          <Property Name="DeliveryPayment" Type="float" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ProductC">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Date" Type="datetime" Nullable="false" />
-          <Property Name="Demand" Type="int" Nullable="false" />
-          <Property Name="Supply" Type="int" Nullable="false" />
-          <Property Name="Income" Type="float" Nullable="false" />
-          <Property Name="Profit" Type="float" Nullable="false" />
-          <Property Name="Provision" Type="float" Nullable="false" />
-          <Property Name="DeliveryPayment" Type="float" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="SalesDataModelStoreContainer">
-          <EntitySet Name="ProductA" EntityType="Self.ProductA" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ProductB" EntityType="Self.ProductB" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ProductC" EntityType="Self.ProductC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SalesDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="DbModel" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ProductASet" EntityType="SalesDataModel.ProductA" />
-          <EntitySet Name="ProductB" EntityType="SalesDataModel.ProductB" />
-          <EntitySet Name="ProductC" EntityType="SalesDataModel.ProductC" />
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Provision" Type="Double" Nullable="false" />
+          <Property Name="DeliveryPayment" Type="Double" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Product" EntityType="Self.Product" />
         </EntityContainer>
-        <EntityType Name="ProductA">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Demand" Type="Int32" Nullable="false" />
-          <Property Name="Supply" Type="Int32" Nullable="false" />
-          <Property Name="Income" Type="Double" Nullable="false" />
-          <Property Name="Profit" Type="Double" Nullable="false" />
-          <Property Name="Provision" Type="Double" Nullable="false" />
-          <Property Name="DeliveryPayment" Type="Double" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ProductB">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Demand" Type="Int32" Nullable="false" />
-          <Property Name="Supply" Type="Int32" Nullable="false" />
-          <Property Name="Income" Type="Double" Nullable="false" />
-          <Property Name="Profit" Type="Double" Nullable="false" />
-          <Property Name="Provision" Type="Double" Nullable="false" />
-          <Property Name="DeliveryPayment" Type="Double" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ProductC">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Demand" Type="Int32" Nullable="false" />
-          <Property Name="Supply" Type="Int32" Nullable="false" />
-          <Property Name="Income" Type="Double" Nullable="false" />
-          <Property Name="Profit" Type="Double" Nullable="false" />
-          <Property Name="Provision" Type="Double" Nullable="false" />
-          <Property Name="DeliveryPayment" Type="Double" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="SalesDataModelStoreContainer" CdmEntityContainer="DbModel">
-  <EntitySetMapping Name="ProductASet">
-            <EntityTypeMapping TypeName="SalesDataModel.ProductA">
-              <MappingFragment StoreEntitySet="ProductA">
-                <ScalarProperty Name="DeliveryPayment" ColumnName="DeliveryPayment" />
-                <ScalarProperty Name="Provision" ColumnName="Provision" />
-                <ScalarProperty Name="Profit" ColumnName="Profit" />
-                <ScalarProperty Name="Income" ColumnName="Income" />
-                <ScalarProperty Name="Supply" ColumnName="Supply" />
-                <ScalarProperty Name="Demand" ColumnName="Demand" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SalesDataModelStoreContainer" CdmEntityContainer="DBModel">
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="SalesDataModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProductB">
-            <EntityTypeMapping TypeName="SalesDataModel.ProductB">
-              <MappingFragment StoreEntitySet="ProductB">
-                <ScalarProperty Name="DeliveryPayment" ColumnName="DeliveryPayment" />
-                <ScalarProperty Name="Provision" ColumnName="Provision" />
-                <ScalarProperty Name="Profit" ColumnName="Profit" />
-                <ScalarProperty Name="Income" ColumnName="Income" />
-                <ScalarProperty Name="Supply" ColumnName="Supply" />
-                <ScalarProperty Name="Demand" ColumnName="Demand" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ProductC">
-            <EntityTypeMapping TypeName="SalesDataModel.ProductC">
-              <MappingFragment StoreEntitySet="ProductC">
-                <ScalarProperty Name="DeliveryPayment" ColumnName="DeliveryPayment" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Provision" ColumnName="Provision" />
-                <ScalarProperty Name="Profit" ColumnName="Profit" />
-                <ScalarProperty Name="Income" ColumnName="Income" />
-                <ScalarProperty Name="Supply" ColumnName="Supply" />
-                <ScalarProperty Name="Demand" ColumnName="Demand" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DeliveryPayment" ColumnName="DeliveryPayment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
         </EntityContainerMapping>
-</Mapping></edmx:Mappings>
+      </Mapping>
+    </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -160,7 +74,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

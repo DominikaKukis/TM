@@ -12,15 +12,14 @@ namespace SalesCharts.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductB
+    public partial class Product
     {
         public int Id { get; set; }
+        public string Name { get; set; }
         public System.DateTime Date { get; set; }
-        public int Demand { get; set; }
-        public int Supply { get; set; }
-        public double Income { get; set; }
-        public double Profit { get; set; }
+        public double Price { get; set; }
         public double Provision { get; set; }
         public double DeliveryPayment { get; set; }
+        public int Amount { get; set; }
     }
 }

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SalesCharts.Models.Product>
+
+@{
+    ViewBag.Title = "ProductB";
+}
+
+<h2>ProductB</h2>
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Provision)
+        </th>
+        <th>
+            Delivery Payment
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Provision)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryPayment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+    </tr>
+}
+
+</table>
