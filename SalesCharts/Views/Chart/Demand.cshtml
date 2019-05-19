@@ -7,7 +7,7 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
     <style>
-        #chart_container{
+        #chart_container {
             width: 800px;
             height: 400px;
             border: 1px solid #ddd;
@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    
+
     <div id="chart_container">
         <canvas id="line_chart"></canvas>
 
@@ -27,8 +27,8 @@
 
     <script>
 
-        var amountA = @Html.Raw(Json.Encode(ViewBag.AmountA));
-        var amountB = @Html.Raw(Json.Encode(ViewBag.AmountB));
+        var listAA = @Html.Raw(Json.Encode(ViewBag.LISTAA));
+        var listBB = @Html.Raw(Json.Encode(ViewBag.LISTBB));
 
         var dates = [];
 
@@ -46,14 +46,14 @@
                 datasets: [
                     {
                         label: "ProductA",
-                        data: amountA,
+                        data: listAA,
                         backgroundColor: ["rgba(152,166,54,.5)", "rgba(145,65,72,.5)", "rgba(74,25,92,.5)"],
                         borderColor: ["rgb(152, 166, 54)", "rgb(145,65,72)", "rgb(74,25,92)"],
                         borderWidth: 1
                     },
                     {
                         label: "ProductB",
-                        data: amountB,
+                        data: listBB,
                         backgroundColor: ["rgba(242,166,54,.5)", "rgba(145,65,72,.5)", "rgba(74,25,92,.5)"],
                         borderColor: ["rgb(242, 166, 54)", "rgb(145,65,72)", "rgb(74,25,92)"],
                         borderWidth: 1

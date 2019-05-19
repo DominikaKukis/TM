@@ -212,6 +212,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\ProductA.cshtml" />
     <Content Include="Views\Home\ProductB.cshtml" />
+    <Content Include="Views\Chart\Demand.cshtml" />
+    <Content Include="Views\Chart\Income.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
