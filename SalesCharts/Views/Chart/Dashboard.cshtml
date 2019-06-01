@@ -19,16 +19,42 @@
 </head>
 
 <body>
-    
+
     <div id="chart_container">
         <canvas id="line_chart"></canvas>
 
     </div>
 
+    <button class="btn-success" id="btn1" onclick="prodAs()">Show productA</button>
+    <button class="btn-danger" id="btn1" onclick="prodAh()">Hide productA</button>
+    <br />
+    <button class="btn-success" id="btn2" onclick="prodBs()">Show productB</button>
+    <button class="btn-danger" id="btn2" onclick="prodBh()">Hide productB</button>
+
     <script>
 
-        var amountA = @Html.Raw(Json.Encode(ViewBag.AmountA));
+        var amountA =  @Html.Raw(Json.Encode(ViewBag.AmountA));
         var amountB = @Html.Raw(Json.Encode(ViewBag.AmountB));
+
+        function prodAs() {
+            lineChart.data.datasets[0].data = amountA;
+            this.lineChart.update();
+        }
+
+        function prodAh() {
+            lineChart.data.datasets[0].data = [];
+            this.lineChart.update();
+        }
+
+        function prodBs() {
+            lineChart.data.datasets[1].data = amountB;
+            this.lineChart.update();
+        }
+
+        function prodBh() {
+            lineChart.data.datasets[1].data = [];
+            this.lineChart.update();
+        }
 
         var dates = [];
 
@@ -46,14 +72,14 @@
                 datasets: [
                     {
                         label: "ProductA",
-                        data: amountA,
+                        //data: amountA,
                         backgroundColor: ["rgba(152,166,54,.5)", "rgba(145,65,72,.5)", "rgba(74,25,92,.5)"],
                         borderColor: ["rgb(152, 166, 54)", "rgb(145,65,72)", "rgb(74,25,92)"],
                         borderWidth: 1
                     },
                     {
                         label: "ProductB",
-                        data: amountB,
+                        //data: amountB,
                         backgroundColor: ["rgba(242,166,54,.5)", "rgba(145,65,72,.5)", "rgba(74,25,92,.5)"],
                         borderColor: ["rgb(242, 166, 54)", "rgb(145,65,72)", "rgb(74,25,92)"],
                         borderWidth: 1
