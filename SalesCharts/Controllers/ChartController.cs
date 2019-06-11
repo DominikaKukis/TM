@@ -10,24 +10,38 @@ namespace SalesCharts.Controllers
     public class ChartController : Controller
     {
         // GET: Chart
+        /// <summary>Indexes this instance.</summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: Chart/Details/5
+        /// <summary>Detailses the specified identifier.</summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
         public ActionResult Details(int id)
         {
             return View();
         }
 
         // GET: Chart/Create
+        /// <summary>
+        ///   <para>
+        /// Creates this instance.
+        /// </para>
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Chart/Create
+        /// <summary>Creates the specified collection.</summary>
+        /// <param name="collection">The collection.</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -44,18 +58,24 @@ namespace SalesCharts.Controllers
         }
 
         // GET: Chart/Edit/5
+        /// <summary>Edits the specified identifier.</summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
         public ActionResult Edit(int id)
         {
             return View();
         }
 
         // POST: Chart/Edit/5
+        /// <summary>Edits the specified identifier.</summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="collection">The collection.</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
 
                 return RedirectToAction("Index");
             }
@@ -66,12 +86,19 @@ namespace SalesCharts.Controllers
         }
 
         // GET: Chart/Delete/5
+        /// <summary>Deletes the specified identifier.</summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
         public ActionResult Delete(int id)
         {
             return View();
         }
 
         // POST: Chart/Delete/5
+        /// <summary>Deletes the specified identifier.</summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="collection">The collection.</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -87,6 +114,8 @@ namespace SalesCharts.Controllers
             }
         }
 
+        /// <summary>Dashboards this instance.</summary>
+        /// <returns></returns>
         public ActionResult Dashboard() //Podaż -supply
         {
             DBModel dbModel = new DBModel();
@@ -105,6 +134,8 @@ namespace SalesCharts.Controllers
             return View();
         }
 
+        /// <summary>Demands this instance.</summary>
+        /// <returns></returns>
         public ActionResult Demand() //Popyt
         {
             DBModel dbModel = new DBModel();
@@ -141,6 +172,8 @@ namespace SalesCharts.Controllers
             return View();
         }
 
+        /// <summary>Incomes this instance.</summary>
+        /// <returns></returns>
         public ActionResult Income() //Przychód
         {
             DBModel dbModel = new DBModel();

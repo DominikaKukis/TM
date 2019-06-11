@@ -9,11 +9,15 @@ namespace SalesCharts.Controllers
 {
     public class HomeController : Controller
     {
+        /// <summary>Indexes this instance.</summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>Products a.</summary>
+        /// <returns></returns>
         public ActionResult ProductA()
         {
             using (DBModel dBModel = new DBModel())
@@ -22,6 +26,8 @@ namespace SalesCharts.Controllers
             }
         }
 
+        /// <summary>Products the b.</summary>
+        /// <returns></returns>
         public ActionResult ProductB()
         {
             using (DBModel dBModel = new DBModel())
@@ -30,6 +36,8 @@ namespace SalesCharts.Controllers
             }
         }
 
+        /// <summary>Products this instance.</summary>
+        /// <returns></returns>
         public ActionResult Product()
         {
             ViewBag.Message = "Your product page.";

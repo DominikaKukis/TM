@@ -49,41 +49,82 @@
         var dates = [];
 
         function prodAs() {
+            /// <summary>
+            /// Products as.
+            /// </summary>
+            /// <returns></returns>
             lineChart.data.datasets[0].data = amountA;
             this.lineChart.update();
         }
 
         function prodAh() {
+            /// <summary>
+            /// Products the ah.
+            /// </summary>
+            /// <returns></returns>
             lineChart.data.datasets[0].data = [];
             this.lineChart.update();
         }
 
         function prodBs() {
+            /// <summary>
+            /// Products the bs.
+            /// </summary>
+            /// <returns></returns>
             lineChart.data.datasets[1].data = amountB;
             this.lineChart.update();
         }
 
         function prodBh() {
+            /// <summary>
+            /// Products the bh.
+            /// </summary>
+            /// <returns></returns>
             lineChart.data.datasets[1].data = [];
             this.lineChart.update();
         }
 
         function setFilter() {
+            /// <summary>
+            /// Sets the filter.
+            /// </summary>
+            /// <returns></returns>
             var d1 = Date.parse(from.value);
             var d2 = Date.parse(to.value);
             var newDate = [];
-            newDate[0] = d1;
+            newDate[0] = new Date(d1);
+
+            console.log(typeof (d1));
 
             function addDays(date, days) {
+                /// <summary>
+                /// Adds the days.
+                /// </summary>
+                /// <param name="date">The date.</param>
+                /// <param name="days">The days.</param>
+                /// <returns></returns>
                 var result = new Date(date);
                 result.setDate(result.getDate() + days);
                 return result;
+            }
+
+            function dateToString(date) {
+                /// <summary>
+                /// Dates to string.
+                /// </summary>
+                /// <param name="date">The date.</param>
+                /// <returns></returns>
+                return date.getDate() + "." + date.getMonth() + 1 + "." + date.getFullYear();
             }
 
             for (var i = 1; newDate[i-1] < d2; i++)
             {
                 var temp = newDate[i - 1];
                 newDate[i] = addDays(temp, 1);
+            }
+
+            for (var i = 0; i < newDate.length; i++) {
+                newDate[i] = dateToString(newDate[i]);
             }
 
             lineChart.data.labels = newDate;
@@ -104,14 +145,12 @@
                 datasets: [
                     {
                         label: "ProductA",
-                        //data: amountA,
                         backgroundColor: ["rgba(152,166,54,.5)", "rgba(145,65,72,.5)", "rgba(74,25,92,.5)"],
                         borderColor: ["rgb(152, 166, 54)", "rgb(145,65,72)", "rgb(74,25,92)"],
                         borderWidth: 1
                     },
                     {
                         label: "ProductB",
-                        //data: amountB,
                         backgroundColor: ["rgba(242,166,54,.5)", "rgba(145,65,72,.5)", "rgba(74,25,92,.5)"],
                         borderColor: ["rgb(242, 166, 54)", "rgb(145,65,72)", "rgb(74,25,92)"],
                         borderWidth: 1
