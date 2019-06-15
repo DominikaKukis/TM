@@ -27,24 +27,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Provision)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeliveryPayment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryPayment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+        </tr>
+    }
 
 </table>
+
+<br />
+
+<p>
+    <button type="button" class="btn">
+        @Html.ActionLink("Back", "Index")
+    </button>
+</p>

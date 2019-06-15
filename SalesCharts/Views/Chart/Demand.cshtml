@@ -25,12 +25,108 @@
 
     </div>
 
+    <br />
+
+    <button class="btn-success" id="btn1" onclick="prodAs()">Show productA</button>
+    <button class="btn-danger" id="btn1" onclick="prodAh()">Hide productA</button>
+    <br />
+    <button class="btn-success" id="btn2" onclick="prodBs()">Show productB</button>
+    <button class="btn-danger" id="btn2" onclick="prodBh()">Hide productB</button>
+    <br />
+    <br />
+
+    <label>From: </label>
+    <input type="datetime" id="from" name="from" />
+    <label>To: </label>
+    <input type="datetime" id="to" name="from" />
+    <button class="btn-default" id="btn1" onclick="setFilter()">Show products</button>
+
     <script>
 
         var listAA = @Html.Raw(Json.Encode(ViewBag.LISTAA));
         var listBB = @Html.Raw(Json.Encode(ViewBag.LISTBB));
 
         var dates = [];
+
+        function prodAs() {
+            /// <summary>
+            /// Products as.
+            /// </summary>
+            /// <returns></returns>
+            lineChart.data.datasets[0].data = listAA;
+            this.lineChart.update();
+        }
+
+        function prodAh() {
+            /// <summary>
+            /// Products the ah.
+            /// </summary>
+            /// <returns></returns>
+            lineChart.data.datasets[0].data = [];
+            this.lineChart.update();
+        }
+
+        function prodBs() {
+            /// <summary>
+            /// Products the bs.
+            /// </summary>
+            /// <returns></returns>
+            lineChart.data.datasets[1].data = listBB;
+            this.lineChart.update();
+        }
+
+        function prodBh() {
+            /// <summary>
+            /// Products the bh.
+            /// </summary>
+            /// <returns></returns>
+            lineChart.data.datasets[1].data = [];
+            this.lineChart.update();
+        }
+
+        function setFilter() {
+            /// <summary>
+            /// Sets the filter.
+            /// </summary>
+            /// <returns></returns>
+            var d1 = Date.parse(from.value);
+            var d2 = Date.parse(to.value);
+            var newDate = [];
+            newDate[0] = new Date(d1);
+
+            function addDays(date, days) {
+                /// <summary>
+                /// Adds the days.
+                /// </summary>
+                /// <param name="date">The date.</param>
+                /// <param name="days">The days.</param>
+                /// <returns></returns>
+                var result = new Date(date);
+                result.setDate(result.getDate() + days);
+                return result;
+            }
+
+            function dateToString(date) {
+                /// <summary>
+                /// Dates to string.
+                /// </summary>
+                /// <param name="date">The date.</param>
+                /// <returns></returns>
+                return date.getDate() + "." + date.getMonth() + 1 + "." + date.getFullYear();
+            }
+
+            for (var i = 1; newDate[i - 1] < d2; i++) {
+                var temp = newDate[i - 1];
+                newDate[i] = addDays(temp, 1);
+            }
+
+            for (var i = 0; i < newDate.length; i++) {
+                newDate[i] = dateToString(newDate[i]);
+            }
+
+            lineChart.data.labels = newDate;
+            this.lineChart.update();
+        }
 
         @foreach(var item in ViewBag.DATES)
         {
@@ -87,3 +183,11 @@
 
 </html>
 
+<br />
+<br />
+
+<p>
+    <button type="button" class="btn">
+        @Html.ActionLink("Home", "Index", "Home")
+    </button>
+</p>

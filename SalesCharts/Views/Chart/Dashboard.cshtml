@@ -94,8 +94,6 @@
             var newDate = [];
             newDate[0] = new Date(d1);
 
-            console.log(typeof (d1));
-
             function addDays(date, days) {
                 /// <summary>
                 /// Adds the days.
@@ -145,12 +143,14 @@
                 datasets: [
                     {
                         label: "ProductA",
+                        data: amountA,
                         backgroundColor: ["rgba(152,166,54,.5)", "rgba(145,65,72,.5)", "rgba(74,25,92,.5)"],
                         borderColor: ["rgb(152, 166, 54)", "rgb(145,65,72)", "rgb(74,25,92)"],
                         borderWidth: 1
                     },
                     {
                         label: "ProductB",
+                        data: amountB,
                         backgroundColor: ["rgba(242,166,54,.5)", "rgba(145,65,72,.5)", "rgba(74,25,92,.5)"],
                         borderColor: ["rgb(242, 166, 54)", "rgb(145,65,72)", "rgb(74,25,92)"],
                         borderWidth: 1
@@ -182,5 +182,15 @@
 
 </body>
 
+
+
 </html>
 
+<br />
+<br />
+
+<p>
+    <button type="button" class="btn">
+        @Html.ActionLink("Home", "Index", "Home")
+    </button>
+</p>
